@@ -1,0 +1,39 @@
+<template name="simpleForm">
+  <h1>
+    Useful Forms
+  </h1>
+  <p>
+    Write forms using your own html and still have access to a reactive form state and validation. Choose when and how to validate your form.
+  </p>
+  <form class="form-inline">
+    <div class="form-group {{#if error 'firstName'}}has-error{{/if}}">
+      <label>First Name</label>
+      <input type="text" name="firstName" value={{value "firstName"}} class="form-control">
+      <span class="help-block">
+        {{error "firstName"}}
+      </span>
+    </div>
+    <div class="form-group {{#if error 'lastName'}}has-error{{/if}}">
+      <label>Last Name</label>
+      <input type="text" name="lastName" value={{value "lastName"}} class="form-control">
+      <span class="help-block">
+        {{error "lastName"}}
+      </span>
+    </div>
+    <div class="form-group {{#if error 'age'}}has-error{{/if}}">
+      <label>Age</label>
+      <input type="text" name="age" value={{value "age"}} class="form-control">
+      <span class="help-block">
+        {{error "age"}}
+      </span>
+    </div>
+    <div class="form-group {{#if error 'favoriteColor'}}has-error{{/if}}">
+      <label>Favorite Color</label>
+      <input type="text" name="favoriteColor" value={{value "favoriteColor"}} class="form-control">
+      <span class="help-block">
+        {{error "favoriteColor"}}
+      </span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</template>
