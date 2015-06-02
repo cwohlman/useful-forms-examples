@@ -16,3 +16,4 @@ var events = {
 
 Template.simpleForm.events(events);
 Template.customizedForm.events(events);
+Template.autoForm.events(events);

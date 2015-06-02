@@ -1,0 +1,35 @@
+<template name="autoForm">
+  <h1>
+    Auto Forms
+  </h1>
+  <p>
+    The useful:forms package doesn't provide any autoform's quickform capability of
+    generating your html for you, but provides a stable base you could easily use
+    to write your own autoform style form generator.
+  </p>
+  <form class="{{class}}">
+    {{#each fields}}
+      {{> autofield field=this form=form}}
+    {{/each}}
+    <button type="submit" class="btn btn-primary">
+      Save
+    </button>
+  </form>
+</template>
+
+<template name="autofield">
+  <div class="form-group {{errorClass}}">
+    <label>{{field.title}}</label>
+    <input
+      name="{{field.name}}"
+      type="{{field.type}}"
+      value="{{form.value field.name}}"
+      class="{{field.class}} form-control"
+      >
+    {{#if form.error field.name}}
+      <span class="help-block">
+        {{form.error field.name}}
+      </span>
+    {{/if}}
+  </div>
+</template>
