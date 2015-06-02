@@ -4,15 +4,21 @@
 
 <body>
   <div class="container">
-    {{> simpleForm doc=item}}
-    {{> customizedForm doc=item}}
-    {{> autoForm doc=item}}
-    <h1>
-      Output
-    </h1>
-    <p>
-      Each form is wired to reactively update this variable below. Notice how the value does not change if the form is invalid. This is because we're subscribing to the documentSubmit event which is only fired on successful validation.
-    </p>
-    <pre>{{print item}}</pre>
+    <div class="row">
+      <div class="col-lg-8">
+        {{> simpleForm doc=item}}
+        {{> customizedForm doc=item}}
+        {{> autoForm doc=item}}
+      </div>
+      <div class="col-lg-4">
+        <h1>
+          Output
+        </h1>
+        <p>
+          Each form is wired to reactively update this variable below. Notice how the value does not change if the form is invalid. This is because we're subscribing to the documentSubmit event which is only fired on successful validation.
+        </p>
+        <pre>{{print item}}</pre>
+      </div>
+    </div>
   </div>
 </body>
