@@ -23,10 +23,16 @@ Template.customizedForm.helpers({
 });
 
 Template.customizedForm.events({
-  'down': function (e, tmpl) {
-    Meteor.setTimeout(function () {
-      Forms.change(e, tmpl);
-      Forms.validate(Forms.call('doc'), Forms.call('schema'));
-    });
+  'keyup': function (e, tmpl) {
+    Forms.change(e, tmpl);
+    Forms.validate(Forms.call('doc'), Forms.call('schema'));
+  }
+  , change: function (e, tmpl) {
+    Forms.submit(e, tmpl);
+  }
+  , submit: function (e, tmpl) {
+    var doc = e.doc || {};
+    doc.attempts = (doc.attempts || 0) + 1;
+    tmpl.doc.set(doc);
   }
 });
